@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script type="text/javascript" src="./index.js"></script>
+<style>
+html {
+  font-family: sans-serif;
+}
+#header {
+  margin-left: 40px;
+}
+#iSearch{
+  padding: 8px;
+}
+.searchItem {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 8px;
+}
+</style>
+<script type="text/javascript" src="./index.js"></script>
 </head>
 <body>
-  <p>Type and click the button to search in the iTunes Store:</p>
-  <input id="iSearch" type="text" value="Type here" onkeyup="iSearch(event)">
-  <button onclick="iSearch()">SEARCH!</button>
+  <div id="header">
+    <h1>iTunes Store Search</h1>
+    <input id="iSearch" type="text" placeholder="Type and press Enter" onkeyup="iSearch(event)">
+  </div>
   <div id="searchResults"></div>
+
 </body>
 </html>
