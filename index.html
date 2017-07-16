@@ -4,11 +4,9 @@
   <script type="text/javascript" src="./index.js"></script>
 </head>
 <body>
-  <p>Click the button to replace "Microsoft" with "W3Schools" in the paragraph below:</p>
-
-  <p id="demo">Visit Microsoft!</p>
-  <input type="text" value="Type here">
-  <button onclick="itunes()">SEARCH!</button>
-
+  <p>Type and click the button to search in the iTunes Store:</p>
+  <input id="iSearch" type="text" value="Type here" onkeyup="iSearch(event)">
+  <button onclick="iSearch()">SEARCH!</button>
+  <div id="searchResults"></div>
 </body>
 </html>
