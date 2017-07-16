@@ -14,33 +14,37 @@ window.onload = () => {
     this.search = '';
 
     // // Enter key was pressed
-    if (event && event.code === 'Enter') {
+    if (event.code === 'Enter') {
       search = event.target.value;
-    }
 
-    // get input value from the DOM if the function was called by pressing the button
-    if(!event) {
-      search = document.getElementById('iSearch').value;
-    }
-
-    if (search !== undefined) {
+      // get input value from the DOM if the function was called by pressing the button
+      if(!event) {
+        search = document.getElementById('iSearch').value;
+      }
       search = search.split(' ').join('+');
       this.state.fetchResults = await fetchItunes(search);
 
-      document.getElementById('searchResults').appendChild(makeList(this.state.fetchResults));
+
+      // display the results
+      const results = document.getElementById('searchResults');
+      // clear search results
+      console.log(results);
+      // results.removeChild(results.childNodes[0]);
+      results.appendChild(makeList(this.state.fetchResults));
     }
   };
 
   fetchItunes = async (search) => {
-    let res = await fetch(`https://itunes.apple.com/search?term=${search}`).then(res => res.json());
+    let res = await fetch(`https://itunes.apple.com/search?term=${search}&limit=10`).then(res => res.json());
     return res.results;
   };
 
   makeList = (array) => {
-    console.log(array);
     let list = document.createElement('ul');
+    list.style.cssText = 'list-style:none;';
     for (let i = 0; i < array.length; i++) {
       let item = document.createElement('li');
+      item.className = 'searchItem';
       item.appendChild(document.createTextNode(array[i].collectionName));
       list.appendChild(item);
     }
