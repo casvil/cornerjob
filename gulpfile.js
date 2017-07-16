@@ -14,7 +14,6 @@ gulp.task('watch', function () {
 
   gulp.watch([
     'index.html',
-    'css/main.css',
     'index.js'
   ]).on('change', browserSync.reload);
 
