@@ -1,0 +1,29 @@
+html {
+  font-family: sans-serif;
+}
+#header {
+  margin-left: 40px;
+}
+#iSearch{
+  padding: 8px;
+}
+#searchResults ul {
+  padding-left: 0 !important;
+}
+#searchResults ul:first-child{
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border: 1px solid black;
+}
+#searchResults ul:last-child{
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border: 1px solid black;
+}
+.searchItem {
+  padding: 8px;
+}
+.searchItem:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
