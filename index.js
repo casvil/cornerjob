@@ -40,12 +40,24 @@ window.onload = () => {
   };
 
   makeList = (array) => {
+
     let list = document.createElement('ul');
     list.style.cssText = 'list-style:none;';
     for (let i = 0; i < array.length; i++) {
       let item = document.createElement('li');
+      item.innerHTML =
+      `
+        <div class='flexRow searchContent'>
+          <a href=''>
+            <img src='${array[i].artworkUrl100}' />
+          </a>
+          <div class='searchInfo'>
+            <h1>${array[i].artistName}</h1>
+            <h2>${array[i].collectionName}</h2>
+          </div>
+        </div>
+      `;
       item.className = 'searchItem';
-      item.appendChild(document.createTextNode(array[i].collectionName));
       list.appendChild(item);
     }
 
