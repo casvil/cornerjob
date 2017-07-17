@@ -36,9 +36,11 @@ h1 {
 
 .searchItem:hover {
   background-color: lightgray;
-  cursor: pointer;
 }
 
+.searchItem img:hover {
+  cursor: pointer;
+}
 
 .flexRow {
   display: flex;

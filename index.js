@@ -24,11 +24,9 @@ window.onload = () => {
       search = search.split(' ').join('+');
       this.state.fetchResults = await fetchItunes(search);
 
-
       // display the results
       const results = document.getElementById('searchResults');
-      // clear search results
-      console.log(results);
+
       // results.removeChild(results.childNodes[0]);
       results.appendChild(makeList(this.state.fetchResults));
     }
@@ -40,7 +38,7 @@ window.onload = () => {
   };
 
   makeList = (array) => {
-
+    // console.log(array);
     let list = document.createElement('ul');
     list.style.cssText = 'list-style:none;';
     for (let i = 0; i < array.length; i++) {
@@ -48,8 +46,8 @@ window.onload = () => {
       item.innerHTML =
       `
         <div class='flexRow searchContent'>
-          <a href=''>
-            <img src='${array[i].artworkUrl100}' />
+          <a onclick='displayDetail(event)'>
+            <img id='${i}' src='${array[i].artworkUrl100}' />
           </a>
           <div class='searchInfo'>
             <h1>${array[i].artistName}</h1>
@@ -62,6 +60,11 @@ window.onload = () => {
     }
 
     return list;
+  };
+
+  displayDetail = (event) => {
+    document.getElementById('searchResults').style.display = 'none';
+    document.getElementById('resultsDetail').style.display = 'flex';
   };
 
 };
