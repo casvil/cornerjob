@@ -38,16 +38,20 @@ window.onload = () => {
   };
 
   makeList = (array) => {
-    // console.log(array);
+    
+    // clear searc results
+    document.getElementById('searchResults').innerHTML = '';
+
     let list = document.createElement('ul');
     list.style.cssText = 'list-style:none;';
+
     for (let i = 0; i < array.length; i++) {
       let item = document.createElement('li');
       item.innerHTML =
       `
         <div class='flexRow searchContent'>
           <a onclick='displayDetail(event)'>
-            <img id='${i}' src='${array[i].artworkUrl100}' />
+            <img id='${i}' src='${array[i].artworkUrl60}' />
           </a>
           <div class='searchInfo'>
             <h1>${array[i].artistName}</h1>
@@ -63,8 +67,26 @@ window.onload = () => {
   };
 
   displayDetail = (event) => {
+    const id = event.target.id;
+    let resultsDetails = document.getElementById('resultsDetail').style.display = 'flex';
+    let details = document.createElement('div');
+
+    // hide search results
     document.getElementById('searchResults').style.display = 'none';
-    document.getElementById('resultsDetail').style.display = 'flex';
+
+    details.innerHTML =
+    `
+      <div class='flexRow'>
+        <img src='${this.state.fetchResults[id].artworkUrl100}' />
+        <div class='searchInfo'>
+          <h1>${this.state.fetchResults[id].artistName}</h1>
+          <h2>${this.state.fetchResults[id].collectionName}</h2>
+        </div>
+      </div>
+    `;
+
+    resultsDetail.appendChild(details);
+    return resultsDetail;
   };
 
 };
