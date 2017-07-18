@@ -38,7 +38,10 @@ window.onload = () => {
   };
 
   makeList = (array) => {
-    
+
+    if (array.length === 0) {
+      return document.getElementById('searchResults').innerHTML = '<p>No search results found</p>';
+    }
     // clear searc results
     document.getElementById('searchResults').innerHTML = '';
 
@@ -49,15 +52,15 @@ window.onload = () => {
       let item = document.createElement('li');
       item.innerHTML =
       `
-        <div class='flexRow searchContent'>
-          <a onclick='displayDetail(event)'>
-            <img id='${i}' src='${array[i].artworkUrl60}' />
-          </a>
-          <div class='searchInfo'>
-            <h1>${array[i].artistName}</h1>
-            <h2>${array[i].collectionName}</h2>
-          </div>
+      <div class='flexRow searchContent'>
+        <a onclick='displayDetail(event)'>
+          <img id='${i}' src='${array[i].artworkUrl60}' />
+        </a>
+        <div class='searchInfo'>
+          <h1>${array[i].artistName}</h1>
+          <h2>${array[i].collectionName}</h2>
         </div>
+      </div>
       `;
       item.className = 'searchItem';
       list.appendChild(item);
@@ -76,13 +79,19 @@ window.onload = () => {
 
     details.innerHTML =
     `
-      <div class='flexRow'>
-        <img src='${this.state.fetchResults[id].artworkUrl100}' />
-        <div class='searchInfo'>
-          <h1>${this.state.fetchResults[id].artistName}</h1>
-          <h2>${this.state.fetchResults[id].collectionName}</h2>
-        </div>
+    <div class='flexRow'>
+      <img src='${this.state.fetchResults[id].artworkUrl100}' />
+      <div class='searchInfo'>
+        <h1>${this.state.fetchResults[id].artistName}</h1>
+        <h2>${this.state.fetchResults[id].collectionName}</h2>
       </div>
+      <div>
+        <audio controls>
+          <source src='http://a80.phobos.apple.com/us/r30/Music/dc/45/31/mzm.kteqltlu.aac.p.m4a' type='audio/mpeg'>
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
     `;
 
     resultsDetail.appendChild(details);
