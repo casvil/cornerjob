@@ -38,11 +38,15 @@ window.onload = () => {
   };
 
   makeList = (array) => {
+    let searchResults = document.getElementById('searchResults');
+    let resultsDetails = document.getElementById('resultsDetail');
+    searchResults.style.display = 'flex';
+    resultsDetails.style.display = 'none';
 
     if (array.length === 0) {
       return document.getElementById('searchResults').innerHTML = '<p>No search results found</p>';
     }
-    // clear searc results
+    // clear search results
     document.getElementById('searchResults').innerHTML = '';
 
     let list = document.createElement('ul');
@@ -57,8 +61,13 @@ window.onload = () => {
           <img id='${i}' src='${array[i].artworkUrl60}' />
         </a>
         <div class='searchInfo'>
-          <h1>${array[i].artistName}</h1>
-          <h2>${array[i].collectionName}</h2>
+          <div>
+            <span>${array[i].artistName} - </span>
+            <span>${array[i].collectionName}</span>
+          </div>
+          <div>
+            <a ref='${array[i].collectionViewUrl}'>iTunes Collection</a>
+          </div>
         </div>
       </div>
       `;
@@ -71,7 +80,14 @@ window.onload = () => {
 
   displayDetail = (event) => {
     const id = event.target.id;
-    let resultsDetails = document.getElementById('resultsDetail').style.display = 'flex';
+
+    let searchResults = document.getElementById('searchResults');
+    let resultsDetails = document.getElementById('resultsDetail');
+    searchResults.style.display = 'none';
+    resultsDetails.style.display = 'flex';
+
+    document.getElementById('resultsDetail').innerHTML = '';
+
     let details = document.createElement('div');
 
     // hide search results

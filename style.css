@@ -1,5 +1,5 @@
 html {
-  font-family: sans-serif;
+  font-family: Roboto;
 }
 
 h1 {
@@ -52,4 +52,8 @@ h1 {
 
 .searchContent img {
   margin-right: 8px;
+}
+
+#resultsDetail {
+  margin-top: 20px;
 }
