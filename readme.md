@@ -5,6 +5,8 @@
 
 ## How to use the input search?
 Type anything music related and press Enter.
+A list of results will appear, you can press the image to see the preview
+or click on the 2 links to see the artist on iTunes.
 
 ## Tech Stack
 - Vanilla JS

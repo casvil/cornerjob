@@ -2,12 +2,26 @@ html {
   font-family: Roboto;
 }
 
+body {
+  margin: 0;
+}
+
 h1 {
   margin-top: 0;
 }
 
-#header {
+#content {
   margin-left: 40px;
+}
+
+#header {
+  color: white;
+  background-color: black;
+}
+
+#header h1 {
+  margin-left: 40px;
+  padding: 15px 0;
 }
 
 #iSearch{
@@ -56,4 +70,29 @@ h1 {
 
 #resultsDetail {
   margin-top: 20px;
+}
+
+.iTunes {
+  margin-top: 18px;
+}
+
+.iTunes a {
+  border: 1px solid rgb(0,128,252);
+  padding: 3px;
+  text-decoration: none;
+  background-color: rgb(0,128,252);
+  border-radius: 3px;
+  color: white;
+}
+
+.iTunes a:hover {
+  background-color: white;
+  color: rgb(0,128,252);
+}
+
+.searchInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 15px;
 }

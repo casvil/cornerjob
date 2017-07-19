@@ -65,8 +65,9 @@ window.onload = () => {
             <span>${array[i].artistName} - </span>
             <span>${array[i].collectionName}</span>
           </div>
-          <div>
-            <a ref='${array[i].collectionViewUrl}'>iTunes Collection</a>
+          <div class='iTunes'>
+            <a href='${array[i].collectionViewUrl}'>Available on iTunes</a>
+            <a href='${array[i].artistViewUrl}'>${array[i].artistName}</a>
           </div>
         </div>
       </div>
@@ -98,10 +99,8 @@ window.onload = () => {
     <div class='flexRow'>
       <img src='${this.state.fetchResults[id].artworkUrl100}' />
       <div class='searchInfo'>
-        <h1>${this.state.fetchResults[id].artistName}</h1>
-        <h2>${this.state.fetchResults[id].collectionName}</h2>
-      </div>
-      <div>
+        <span>${this.state.fetchResults[id].artistName}</span>
+        <span>${this.state.fetchResults[id].collectionName}</span>
         <audio controls>
           <source src='http://a80.phobos.apple.com/us/r30/Music/dc/45/31/mzm.kteqltlu.aac.p.m4a' type='audio/mpeg'>
           Your browser does not support the audio element.
