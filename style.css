@@ -24,6 +24,11 @@ h1 {
   padding: 15px 0;
 }
 
+#header h1 a {
+  color: white;
+  text-decoration: none;
+}
+
 #iSearch{
   padding: 8px;
 }
@@ -38,14 +43,18 @@ h1 {
   border: 1px solid black;
 }
 
-#searchResults ul:last-child{
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border: 1px solid black;
+#searchResults .searchItem:last-child{
+  border: none;
 }
 
+/*#searchResults ul li:last-child{
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}*/
+
 .searchItem {
-  padding: 8px;
+  padding: 8px 8px 8px 16px;
+  border-bottom: 1px solid black;
 }
 
 .searchItem:hover {
@@ -61,7 +70,7 @@ h1 {
 }
 
 .searchContent {
-  align-items: flex-start;
+  align-items: center;
 }
 
 .searchContent img {
@@ -70,10 +79,6 @@ h1 {
 
 #resultsDetail {
   margin-top: 20px;
-}
-
-.iTunes {
-  margin-top: 18px;
 }
 
 .iTunes a {
@@ -95,4 +100,13 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   margin-left: 15px;
+  padding: 15px 0;
+}
+
+.searchInfo div {
+  margin-bottom: 7px;
+}
+
+.searchInfo div span:first-child {
+  font-size: 25px;
 }

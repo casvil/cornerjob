@@ -50,7 +50,7 @@ window.onload = () => {
     document.getElementById('searchResults').innerHTML = '';
 
     let list = document.createElement('ul');
-    list.style.cssText = 'list-style:none;';
+    list.style.cssText = 'list-style:none; margin-right: 12px;';
 
     for (let i = 0; i < array.length; i++) {
       let item = document.createElement('li');
@@ -99,8 +99,10 @@ window.onload = () => {
     <div class='flexRow'>
       <img src='${this.state.fetchResults[id].artworkUrl100}' />
       <div class='searchInfo'>
-        <span>${this.state.fetchResults[id].artistName}</span>
-        <span>${this.state.fetchResults[id].collectionName}</span>
+        <div>
+          <span>${this.state.fetchResults[id].artistName} - </span>
+          <span>${this.state.fetchResults[id].collectionName}</span>
+        </div>
         <audio controls>
           <source src='http://a80.phobos.apple.com/us/r30/Music/dc/45/31/mzm.kteqltlu.aac.p.m4a' type='audio/mpeg'>
           Your browser does not support the audio element.
